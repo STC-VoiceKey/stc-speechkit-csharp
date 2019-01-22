@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FC6FA31F-2774-43EE-BB31-D12169411AE8}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CloudASRClient</RootNamespace>
-    <AssemblyName>CloudASRClient</AssemblyName>
+    <RootNamespace>CloudDiarizationClient</RootNamespace>
+    <AssemblyName>CloudDiarizationClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,17 +35,14 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="JsonSubTypes, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\JsonSubTypes.1.4.0\lib\net46\JsonSubTypes.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Portable.DataAnnotations, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Portable.DataAnnotations.1.0.0\lib\net45\Portable.DataAnnotations.dll</HintPath>
+      <HintPath>packages\Net46-Portable.DataAnnotations.1.0.2\lib\net46\Portable.DataAnnotations.dll</HintPath>
     </Reference>
-    <Reference Include="RestSharp, Version=106.3.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
-      <HintPath>..\packages\RestSharp.106.3.1\lib\net452\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=106.6.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.106.6.7\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -60,8 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\PackagesApi.cs" />
-    <Compile Include="Api\RecognizeApi.cs" />
+    <Compile Include="Api\DiarizationApi.cs" />
     <Compile Include="Api\SessionApi.cs" />
     <Compile Include="Client\ApiClient.cs" />
     <Compile Include="Client\ApiException.cs" />
@@ -72,23 +68,21 @@
     <Compile Include="Client\IApiAccessor.cs" />
     <Compile Include="Client\IReadableConfiguration.cs" />
     <Compile Include="Client\SwaggerDateConverter.cs" />
-    <Compile Include="Model\ASRResultDto.cs" />
-    <Compile Include="Model\AudioFileDto.cs" />
-    <Compile Include="Model\ExceptionDto.cs" />
-    <Compile Include="Model\PackageDto.cs" />
-    <Compile Include="Model\RecognitionRequestDto.cs" />
-    <Compile Include="Model\SessionDto.cs" />
-    <Compile Include="Model\SessionlessRecognitionRequestDto.cs" />
-    <Compile Include="Model\StartSessionRequest.cs" />
-    <Compile Include="Model\StatusDto.cs" />
-    <Compile Include="Model\StreamRequestDto.cs" />
-    <Compile Include="Model\WebSocketServerConfiguration.cs" />
-    <Compile Include="Model\WordDto.cs" />
+    <Compile Include="Model\AudioDto.cs" />
+    <Compile Include="Model\AuthRequestDto.cs" />
+    <Compile Include="Model\AuthResponseDto.cs" />
+    <Compile Include="Model\AuthStatusDto.cs" />
+    <Compile Include="Model\DiarizationResponseDto.cs" />
+    <Compile Include="Model\DomainDto.cs" />
+    <Compile Include="Model\MessageDto.cs" />
+    <Compile Include="Model\ModuleNamesDto.cs" />
+    <Compile Include="Model\SegmentDto.cs" />
+    <Compile Include="Model\SpeakerDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
