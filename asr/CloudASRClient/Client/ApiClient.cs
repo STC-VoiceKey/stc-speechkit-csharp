@@ -18,7 +18,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace Cloud.Client
+namespace Cloud.ASR.Client
 {
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
@@ -49,7 +49,7 @@ namespace Cloud.Client
         /// </summary>
         public ApiClient()
         {
-            Configuration = Cloud.Client.Configuration.Default;
+            Configuration = Cloud.ASR.Client.Configuration.Default;
             RestClient = new RestClient("https://cp.speechpro.com/vktts/rest");
         }
 
@@ -60,7 +60,7 @@ namespace Cloud.Client
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Cloud.Client.Configuration.Default;
+            Configuration = config ?? Cloud.ASR.Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
         }

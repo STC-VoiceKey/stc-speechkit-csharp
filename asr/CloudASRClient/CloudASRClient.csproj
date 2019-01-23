@@ -60,24 +60,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\PackagesApi.cs" />
+    <Compile Include="Api\RecognizeApi.cs" />
     <Compile Include="Api\SessionApi.cs" />
     <Compile Include="Client\ApiClient.cs" />
     <Compile Include="Client\ApiException.cs" />
     <Compile Include="Client\ApiResponse.cs" />
+    <Compile Include="Model\AdvancedRecognitionRequestDto.cs" />
+    <Compile Include="Model\ASRAdvancedResultDto.cs" />
+    <Compile Include="Model\ASRResultDto.cs" />
+    <Compile Include="Model\AudioFileDto.cs" />
+    <Compile Include="Model\AuthRequestDto.cs" />
+    <Compile Include="Model\AuthResponseDto.cs" />
+    <Compile Include="Model\AuthStatusDto.cs" />
     <Compile Include="Client\Configuration.cs" />
     <Compile Include="Client\ExceptionFactory.cs" />
     <Compile Include="Client\GlobalConfiguration.cs" />
     <Compile Include="Client\IApiAccessor.cs" />
     <Compile Include="Client\IReadableConfiguration.cs" />
     <Compile Include="Client\SwaggerDateConverter.cs" />
+    <Compile Include="Model\DomainDto.cs" />
+    <Compile Include="Model\MessageDto.cs" />
+    <Compile Include="Model\ModuleNamesDto.cs" />
+    <Compile Include="Model\PackageDto.cs" />
+    <Compile Include="Model\RecognitionRequestDto.cs" />
+    <Compile Include="Model\SessionlessRecognitionRequestDto.cs" />
+    <Compile Include="Model\StartSessionRequest.cs" />
+    <Compile Include="Model\StatusDto.cs" />
+    <Compile Include="Model\StreamRequestDto.cs" />
+    <Compile Include="Model\StreamResponseDto.cs" />
+    <Compile Include="Model\WordDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

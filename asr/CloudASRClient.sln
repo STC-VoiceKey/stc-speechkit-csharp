@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudASRClient", "CloudASRClient\CloudASRClient.csproj", "{FC6FA31F-2774-43EE-BB31-D12169411AE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcoleTest", "ConcoleTest\ConcoleTest.csproj", "{2FE1EC2C-CFA7-4BA5-906F-18266A16CE70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{2FE1EC2C-CFA7-4BA5-906F-18266A16CE70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

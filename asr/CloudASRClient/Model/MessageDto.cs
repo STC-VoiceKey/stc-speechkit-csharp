@@ -25,56 +25,35 @@ using SwaggerDateConverter = Cloud.ASR.Client.SwaggerDateConverter;
 namespace Cloud.ASR.Model
 {
     /// <summary>
-    /// ASRResultDto
+    /// Object for exceptions/messages wrapping
     /// </summary>
     [DataContract]
-    public partial class ASRResultDto :  IEquatable<ASRResultDto>, IValidatableObject
+    public partial class MessageDto :  IEquatable<MessageDto>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ASRResultDto" /> class.
+        /// Initializes a new instance of the <see cref="MessageDto" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ASRResultDto() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ASRResultDto" /> class.
-        /// </summary>
-        /// <param name="Score">Text score (required).</param>
-        /// <param name="Text">Result text (required).</param>
-        public ASRResultDto(string Score = default(string), string Text = default(string))
+        /// <param name="Reason">Reason.</param>
+        /// <param name="Message">Message.</param>
+        public MessageDto(string Reason = default(string), string Message = default(string))
         {
-            // to ensure "Score" is required (not null)
-            if (Score == null)
-            {
-                throw new InvalidDataException("Score is a required property for ASRResultDto and cannot be null");
-            }
-            else
-            {
-                this.Score = Score;
-            }
-            // to ensure "Text" is required (not null)
-            if (Text == null)
-            {
-                throw new InvalidDataException("Text is a required property for ASRResultDto and cannot be null");
-            }
-            else
-            {
-                this.Text = Text;
-            }
+            this.Reason = Reason;
+            this.Message = Message;
         }
         
         /// <summary>
-        /// Text score
+        /// Reason
         /// </summary>
-        /// <value>Text score</value>
-        [DataMember(Name="score", EmitDefaultValue=false)]
-        public string Score { get; set; }
+        /// <value>Reason</value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
 
         /// <summary>
-        /// Result text
+        /// Message
         /// </summary>
-        /// <value>Result text</value>
-        [DataMember(Name="text", EmitDefaultValue=false)]
-        public string Text { get; set; }
+        /// <value>Message</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +62,9 @@ namespace Cloud.ASR.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ASRResultDto {\n");
-            sb.Append("  Score: ").Append(Score).Append("\n");
-            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("class MessageDto {\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,29 +85,29 @@ namespace Cloud.ASR.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ASRResultDto);
+            return this.Equals(input as MessageDto);
         }
 
         /// <summary>
-        /// Returns true if ASRResultDto instances are equal
+        /// Returns true if MessageDto instances are equal
         /// </summary>
-        /// <param name="input">Instance of ASRResultDto to be compared</param>
+        /// <param name="input">Instance of MessageDto to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ASRResultDto input)
+        public bool Equals(MessageDto input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Score == input.Score ||
-                    (this.Score != null &&
-                    this.Score.Equals(input.Score))
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 ) && 
                 (
-                    this.Text == input.Text ||
-                    (this.Text != null &&
-                    this.Text.Equals(input.Text))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 );
         }
 
@@ -141,10 +120,10 @@ namespace Cloud.ASR.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Score != null)
-                    hashCode = hashCode * 59 + this.Score.GetHashCode();
-                if (this.Text != null)
-                    hashCode = hashCode * 59 + this.Text.GetHashCode();
+                if (this.Reason != null)
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 return hashCode;
             }
         }

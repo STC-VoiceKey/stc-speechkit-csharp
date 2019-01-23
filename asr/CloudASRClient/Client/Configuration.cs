@@ -16,7 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Cloud.Client
+namespace Cloud.ASR.Client
 {
     /// <summary>
     /// Represents a set of configuration settings
@@ -29,7 +29,7 @@ namespace Cloud.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "1.0.0";
+        public const string Version = "1.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,8 +114,8 @@ namespace Cloud.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/1.0.0/csharp";
-            BasePath = "http://localhost/vkasr/rest";
+            UserAgent = "Swagger-Codegen/1.1/csharp";
+            BasePath = "https://cp.speechpro.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -131,7 +131,7 @@ namespace Cloud.Client
             IDictionary<string, string> defaultHeader,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "http://localhost/vkasr/rest") : this()
+            string basePath = "https://cp.speechpro.com") : this()
         {
             if (string.IsNullOrWhiteSpace(basePath))
                 throw new ArgumentException("The provided basePath is invalid.", "basePath");

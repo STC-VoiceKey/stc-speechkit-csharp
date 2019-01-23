@@ -12,7 +12,7 @@
 using System;
 using RestSharp;
 
-namespace Cloud.Client
+namespace Cloud.ASR.Client
 {
     /// <summary>
     /// A delegate to ExceptionFactory method

@@ -10,7 +10,7 @@
 
 using System;
 
-namespace Cloud.Client
+namespace Cloud.ASR.Client
 {
     /// <summary>
     /// API Exception

@@ -11,7 +11,7 @@
 
 using System;
 
-namespace Cloud.Client
+namespace Cloud.ASR.Client
 {
     /// <summary>
     /// Represents configuration aspects required to interact with the API endpoints.

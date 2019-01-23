@@ -25,33 +25,35 @@ using SwaggerDateConverter = Cloud.ASR.Client.SwaggerDateConverter;
 namespace Cloud.ASR.Model
 {
     /// <summary>
-    /// StreamRequestDto
+    /// AdvancedRecognitionRequestDto
     /// </summary>
     [DataContract]
-    public partial class StreamRequestDto :  IEquatable<StreamRequestDto>, IValidatableObject
+    public partial class AdvancedRecognitionRequestDto :  IEquatable<AdvancedRecognitionRequestDto>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StreamRequestDto" /> class.
+        /// Initializes a new instance of the <see cref="AdvancedRecognitionRequestDto" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected StreamRequestDto() { }
+        protected AdvancedRecognitionRequestDto() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StreamRequestDto" /> class.
+        /// Initializes a new instance of the <see cref="AdvancedRecognitionRequestDto" /> class.
         /// </summary>
         /// <param name="PackageId">Recognize with package.</param>
-        /// <param name="Mime">Audio file mime type (required).</param>
-        public StreamRequestDto(string PackageId = default(string), string Mime = default(string))
+        /// <param name="Channels">Specific channels to process.</param>
+        /// <param name="Data">Binary audio file as Base64 string (required).</param>
+        public AdvancedRecognitionRequestDto(string PackageId = default(string), List<int?> Channels = default(List<int?>), byte[] Data = default(byte[]))
         {
-            // to ensure "Mime" is required (not null)
-            if (Mime == null)
+            // to ensure "Data" is required (not null)
+            if (Data == null)
             {
-                throw new InvalidDataException("Mime is a required property for StreamRequestDto and cannot be null");
+                throw new InvalidDataException("Data is a required property for AdvancedRecognitionRequestDto and cannot be null");
             }
             else
             {
-                this.Mime = Mime;
+                this.Data = Data;
             }
             this.PackageId = PackageId;
+            this.Channels = Channels;
         }
         
         /// <summary>
@@ -62,11 +64,18 @@ namespace Cloud.ASR.Model
         public string PackageId { get; set; }
 
         /// <summary>
-        /// Audio file mime type
+        /// Specific channels to process
         /// </summary>
-        /// <value>Audio file mime type</value>
-        [DataMember(Name="mime", EmitDefaultValue=false)]
-        public string Mime { get; set; }
+        /// <value>Specific channels to process</value>
+        [DataMember(Name="channels", EmitDefaultValue=false)]
+        public List<int?> Channels { get; set; }
+
+        /// <summary>
+        /// Binary audio file as Base64 string
+        /// </summary>
+        /// <value>Binary audio file as Base64 string</value>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public byte[] Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,9 +84,10 @@ namespace Cloud.ASR.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StreamRequestDto {\n");
+            sb.Append("class AdvancedRecognitionRequestDto {\n");
             sb.Append("  PackageId: ").Append(PackageId).Append("\n");
-            sb.Append("  Mime: ").Append(Mime).Append("\n");
+            sb.Append("  Channels: ").Append(Channels).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,15 +108,15 @@ namespace Cloud.ASR.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StreamRequestDto);
+            return this.Equals(input as AdvancedRecognitionRequestDto);
         }
 
         /// <summary>
-        /// Returns true if StreamRequestDto instances are equal
+        /// Returns true if AdvancedRecognitionRequestDto instances are equal
         /// </summary>
-        /// <param name="input">Instance of StreamRequestDto to be compared</param>
+        /// <param name="input">Instance of AdvancedRecognitionRequestDto to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StreamRequestDto input)
+        public bool Equals(AdvancedRecognitionRequestDto input)
         {
             if (input == null)
                 return false;
@@ -118,9 +128,14 @@ namespace Cloud.ASR.Model
                     this.PackageId.Equals(input.PackageId))
                 ) && 
                 (
-                    this.Mime == input.Mime ||
-                    (this.Mime != null &&
-                    this.Mime.Equals(input.Mime))
+                    this.Channels == input.Channels ||
+                    this.Channels != null &&
+                    this.Channels.SequenceEqual(input.Channels)
+                ) && 
+                (
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -135,8 +150,10 @@ namespace Cloud.ASR.Model
                 int hashCode = 41;
                 if (this.PackageId != null)
                     hashCode = hashCode * 59 + this.PackageId.GetHashCode();
-                if (this.Mime != null)
-                    hashCode = hashCode * 59 + this.Mime.GetHashCode();
+                if (this.Channels != null)
+                    hashCode = hashCode * 59 + this.Channels.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }
