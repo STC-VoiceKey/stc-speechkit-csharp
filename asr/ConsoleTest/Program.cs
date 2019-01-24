@@ -20,20 +20,17 @@ namespace ConcoleTest
         static void Main(string[] args)
         {
             var sessionApi = new SessionApi();
-            var startSession = new AuthRequestDto("danilov-k@speechpro.com", 261, "!CPa490c71");
+            var startSession = new AuthRequestDto("user", 261, "password");
             var response = sessionApi.Login(startSession);
             var sessionId = response.SessionId;
+            var packagesApi = new PackagesApi();
+            var loadPackageResponse = packagesApi.Load(Guid.Parse(sessionId), "CommonRus");
             var recognizeApi = new RecognizeApi();
-            var streamRequest = new StreamRequestDto("CommonRus", "audio/l16");
-            var websocketConfig = recognizeApi.StartWithHttpInfo(Guid.Parse(sessionId), streamRequest);
-            var headers = websocketConfig.Headers;
-            var transactionId = headers["X-Transaction-Id"];
-            Console.WriteLine(transactionId);
-            recognizeApi.Close(Guid.Parse(sessionId), Guid.Parse(transactionId));
-            Console.ReadLine();
+            var soundBytes = File.ReadAllBytes("F:\\Art\\pcm\\0068_20170407_own_6944_181007-1496930080.wav");
+            var audio = new AudioFileDto(soundBytes, "audio/x-wav");
+            var recognitionRequest = new RecognitionRequestDto(audio, "CommonRus");
+            var recognitionRequestResponse = recognizeApi.RecognizeWords(Guid.Parse(sessionId), recognitionRequest);
+            recognitionRequestResponse.ForEach(Console.WriteLine);
         }
-        //var proxy = new HttpConnectProxy(new IPEndPoint(IPAddress.Parse("192.168.8.100"), 3128));
-        //websocket.Proxy = (SuperSocket.ClientEngine.IProxyConnector) proxy;
-
     }
 }
