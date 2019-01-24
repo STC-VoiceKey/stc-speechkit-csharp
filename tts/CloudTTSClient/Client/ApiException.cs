@@ -10,7 +10,7 @@
 
 using System;
 
-namespace Cloud.Client
+namespace Cloud.TTS.Client
 {
     /// <summary>
     /// API Exception

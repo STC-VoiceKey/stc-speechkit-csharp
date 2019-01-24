@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Cloud.Client
+namespace Cloud.TTS.Client
 {
     /// <summary>
     /// API Response

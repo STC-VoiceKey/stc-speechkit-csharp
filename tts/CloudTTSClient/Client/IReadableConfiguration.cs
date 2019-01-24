@@ -11,7 +11,7 @@
 
 using System.Collections.Generic;
 
-namespace Cloud.Client
+namespace Cloud.TTS.Client
 {
     /// <summary>
     /// Represents a readable-only configuration contract.

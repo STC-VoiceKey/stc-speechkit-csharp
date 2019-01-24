@@ -11,17 +11,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text.RegularExpressions;
 using System.IO;
-using System.Web;
 using System.Linq;
-using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace Cloud.Client
+namespace Cloud.TTS.Client
 {
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.
@@ -52,18 +49,18 @@ namespace Cloud.Client
         /// </summary>
         public ApiClient()
         {
-            Configuration = Cloud.Client.Configuration.Default;
-            RestClient = new RestClient("https://cp.speechpro.com/vktts/rest");
+            Configuration = Cloud.TTS.Client.Configuration.Default;
+            RestClient = new RestClient("https://cp.speechpro.com");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (https://cp.speechpro.com/vktts/rest).
+        /// with default base path (https://cp.speechpro.com).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
         {
-            Configuration = config ?? Cloud.Client.Configuration.Default;
+            Configuration = config ?? Cloud.TTS.Client.Configuration.Default;
 
             RestClient = new RestClient(Configuration.BasePath);
         }
@@ -73,7 +70,7 @@ namespace Cloud.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "https://cp.speechpro.com/vktts/rest")
+        public ApiClient(String basePath = "https://cp.speechpro.com")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");
