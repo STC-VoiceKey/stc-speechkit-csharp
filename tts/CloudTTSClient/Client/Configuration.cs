@@ -115,7 +115,7 @@ namespace Cloud.TTS.Client
         public Configuration()
         {
             UserAgent = "Swagger-Codegen/1.1/csharp";
-            BasePath = "http://vknode4vmdockerbig1.stc";
+            BasePath = "https://cp.speechpro.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
