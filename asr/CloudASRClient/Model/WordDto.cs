@@ -72,7 +72,19 @@ namespace Cloud.ASR.Model
             /// Enum Slash for value: /
             /// </summary>
             [EnumMember(Value = "/")]
-            Slash = 6
+            Slash = 6,
+
+            /// <summary>
+            /// Enum Comma for value: /
+            /// </summary>
+            [EnumMember(Value = ",")]
+            Comma = 7,
+
+            /// <summary>
+            /// Enum Comma for value: /
+            /// </summary>
+            [EnumMember(Value = ".-")]
+            SpeakerChange = 8
         }
 
         /// <summary>

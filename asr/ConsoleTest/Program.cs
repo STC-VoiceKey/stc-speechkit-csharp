@@ -23,12 +23,10 @@ namespace ConcoleTest
             var startSession = new AuthRequestDto("user", 261, "password");
             var response = sessionApi.Login(startSession);
             var sessionId = response.SessionId;
-            var packagesApi = new PackagesApi();
-            var loadPackageResponse = packagesApi.Load(Guid.Parse(sessionId), "CommonRus");
             var recognizeApi = new RecognizeApi();
             var soundBytes = File.ReadAllBytes("F:\\Art\\pcm\\0068_20170407_own_6944_181007-1496930080.wav");
             var audio = new AudioFileDto(soundBytes, "audio/x-wav");
-            var recognitionRequest = new RecognitionRequestDto(audio, "CommonRus");
+            var recognitionRequest = new RecognitionRequestDto(audio, "FarField");
             var recognitionRequestResponse = recognizeApi.RecognizeWords(Guid.Parse(sessionId), recognitionRequest);
             recognitionRequestResponse.ForEach(Console.WriteLine);
         }
